@@ -4,6 +4,7 @@ import firebase from "firebase";
 import { auth, db } from "../firebase/config";
 
 
+
 class Post extends Component{
   constructor(props) {
     super(props);
@@ -34,6 +35,10 @@ class Post extends Component{
       <Pressable style={styles.boton} onPress={() => this.actualizarDatos(this.props.data.data.likes)}>
                   <Text style={styles.textoBoton}> Likes:{this.props.data.data.likes.length} </Text> 
                 </Pressable> 
+
+      <Pressable style={styles.boton} onPress={() => this.props.navigation.navigate("Comentarios", { screen: 'Comentarios' }) }>
+        <Text>Comentar</Text>
+      </Pressable>
     </View>
   );
   }

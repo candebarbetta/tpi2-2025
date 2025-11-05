@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { db, auth } from "../firebase/config";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
+
 class NuevoPost extends Component {
   constructor(props) {
     super(props);    
@@ -48,6 +49,8 @@ class NuevoPost extends Component {
           <Pressable style={styles.boton} onPress={() => this.onSubmit(this.state.email, this.state.texto, this.state.likes)}>
             <Text style={styles.textoBoton}> Postear </Text> 
           </Pressable> 
+
+
         </View>  
       </View>
     );
