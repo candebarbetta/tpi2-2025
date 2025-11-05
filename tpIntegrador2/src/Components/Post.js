@@ -5,72 +5,79 @@ import { auth, db } from "../firebase/config";
 
 
 
-class Post extends Component{
+class Post extends Component {
   constructor(props) {
     super(props);
     this.state = {
-  
+
     };
   }
-  
-  actualizarDatos(){
+
+  actualizarDatos() {
     db.collection('posts')
-    .doc(this.props.data.id)
-    .update({
-      likes: this.props.data.data.likes.includes(auth.currentUser.email)
-      ? firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email)
-      : firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email)
-    })
-    .then(
-      () => console.log('actualizado')
-    )
+      .doc(this.props.info.id)
+      .update({
+        likes: this.props.info.data.likes.includes(auth.currentUser.email)
+          ? firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email)
+          : firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email)
+      })
+      .then(
+        () => console.log('actualizado')
+      )
   }
-  
-  
+
+
   render() {
     return (
-    <View style={styles.card}>
-      <Text style={styles.email}>{this.props.data.data.email}</Text>
-      <Text style={styles.texto}>{this.props.data.data.texto}</Text>
-      <Pressable style={styles.boton} onPress={() => this.actualizarDatos(this.props.data.data.likes)}>
-                  <Text style={styles.textoBoton}> Likes:{this.props.data.data.likes.length} </Text> 
-                </Pressable> 
+      <View style={styles.card}>
+        <Text style={styles.email}>{this.props.info.data.email}</Text>
+        <Text style={styles.texto}>{this.props.info.data.texto}</Text>
+        <Pressable style={styles.boton} onPress={() => this.actualizarDatos(this.props.info.data.likes)}>
+          <Text style={styles.textoBoton}> Likes:{this.props.info.data.likes.length} </Text>
+        </Pressable>
 
-      <Pressable style={styles.boton} onPress={() => this.props.navigation.navigate("Comentarios", { screen: 'Comentarios' }) }>
-        <Text>Comentar</Text>
-      </Pressable>
-    </View>
-  );
+        <Pressable style={styles.boton} onPress={() => this.props.navigation.navigate("Comentarios", { screen: 'Comentarios' })}>
+          <Text>Comentar</Text>
+        </Pressable>
+      </View>
+    );
   }
-  
+
 }
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "white",
-    padding: 10,
-    borderRadius: 8
+    backgroundColor: "#ffffff",
+    padding: 12,
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#e1e8ed",
+    marginBottom: 10,
   },
   email: {
     fontWeight: "bold",
-    marginBottom: 4,
+    color: "#14171a",
+    marginBottom: 5,
   },
   texto: {
-    fontSize: 16,
+    fontSize: 15,
+    color: "#14171a",
+    marginBottom: 10,
   },
-   boton: {
-    backgroundColor:  "#eefe90ff",
+  boton: {
+    backgroundColor: "#1da1f2",
     paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderRadius: 4,
+    paddingHorizontal: 12,
+    borderRadius: 20,
     alignItems: "center",
-    borderSize: 1,
-    borderStyle: "solid",
-    borderColor: "#eefe90ff"
+    marginTop: 5,
   },
   textoBoton: {
-    color: "#ffbd59ff",
-  }
+    color: "#ffffff",
+    fontWeight: "600",
+  },
+  
 });
+
 
 export default Post;

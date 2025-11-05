@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import { db } from "../firebase/config";
 import Post from "../Components/Post";
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 class Home extends Component {
   constructor(props) {
@@ -30,12 +31,13 @@ class Home extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <AntDesign name="twitter" size={24} color="blue" style={styles.logo} />
         <Text style={styles.texto}>Home</Text>
 
         <FlatList
           data={this.state.posts}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Post data={item}  />}
+          renderItem={({ item }) => <Post info={item}  />}
         />
         
       </View>
@@ -46,24 +48,31 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 20
+    backgroundColor: "#f5f8fa",
+    alignItems: "stretch",
+    justifyContent: "flex-start",
+    padding: 12
+  },
+  logo: {
+    alignSelf: "center",
+    color: "#1DA1F2", // azul Twitter
+    marginTop: 10,
+    marginBottom: 5,
   },
   texto: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: 100,
+    fontSize: 22,
     fontWeight: "bold",
-    padding: 20,
-    borderRadius: 10,
-    backgroundColor: "pink",
-    marginTop: 50,
+    color: "#14171a",
+    backgroundColor: "#ffffff",
+    borderWidth: 1,
+    borderColor: "#e1e8ed",
+    borderRadius: 8,
+    padding: 10,
+    marginTop: 16,
     textAlign: "center",
+    alignSelf: "center"
   },
 });
+
 
 export default Home;

@@ -83,43 +83,43 @@ class Register extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#ffe6f0',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    boton: {
-        backgroundColor: '#f4a9c6',
-        padding: 12,
-        marginVertical: 10,
-        borderRadius: 10,
-        width: '70%',
-        alignItems: 'center'
-    },
-    boton2: {
-        backgroundColor: '#f4a9c6',
-        padding: 12,
-        marginVertical: 10,
-        borderRadius: 10,
-        width: '100%',
-        alignItems: 'center',
-        color: '#fff',
-        fontWeight: 'bold'
-    },
-    text: {
-        color: '#fff',
-        fontWeight: 'bold'
-    },
-    texto: {
-        width: '70%',
-        borderWidth: 1,
-        borderColor: '#f4a9c6',
-        borderRadius: 10,
-        padding: 10,
-        marginVertical: 8,
-        backgroundColor: '#fff'
-    }
-})
+  container: {
+    flex: 1,
+    backgroundColor: "#f5f8fa",
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  boton: {
+    backgroundColor: "#1da1f2",
+    padding: 12,
+    marginVertical: 10,
+    borderRadius: 24,
+    width: "70%",
+    alignItems: "center"
+  },
+  boton2: {
+    backgroundColor: "#1da1f2",
+    padding: 12,
+    marginVertical: 10,
+    borderRadius: 24,
+    width: "100%",
+    textAlign: "center",
+    color: "#fff",
+    fontWeight: "bold"
+  },
+  text: {
+    color: "#fff",
+    fontWeight: "bold"
+  },
+  texto: {
+    width: "70%",
+    borderWidth: 1,
+    borderColor: "#e1e8ed",
+    borderRadius: 20,
+    padding: 10,
+    marginVertical: 8,
+    backgroundColor: "#ffffff"
+  }
+});
 
 export default Register;

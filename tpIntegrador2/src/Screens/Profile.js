@@ -3,7 +3,7 @@ import { Pressable } from "react-native";
 import { Text, View, StyleSheet } from "react-native";
 import { auth } from "../firebase/config";
 import { db } from "../firebase/config";
-import { FlatList } from "react-native-web";
+import { FlatList } from "react-native";
 
 class Profile extends Component {
     constructor(props) {
@@ -63,30 +63,33 @@ class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
-    contenedor: {
-        padding: 10,
-        backgroundColor: "pink",
-        borderRadius: 25,
-        margin: 15
-    }, 
-    titulo: {
-        fontWeight: "bold",
-        color: "#b03060",
-        textAlign: "center",
-        fontSize: 16,
-        marginBottom: 10 
+  contenedor: {
+    padding: 12,
+    backgroundColor: "#f5f8fa",
+    borderRadius: 10,
+    margin: 15,
+    borderWidth: 1,
+    borderColor: "#e1e8ed"
+  },
+  titulo: {
+    fontWeight: "bold",
+    color: "#14171a",
+    textAlign: "center",
+    fontSize: 18,
+    marginBottom: 10
+  },
+  texto: {
+    textAlign: "center",
+    color: "#14171a",
+    backgroundColor: "#ffffff",
+    padding: 10,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: "#e1e8ed",
+    marginTop: 8
+  }
+});
 
-    },
-    texto: {
-        textAlign: "center",
-        color: "#c71585",
-        backgroundColor: "#ffe6ef",
-        padding: 10,
-        borderRadius: 25
-
-    }
-
-})
 
 export default Profile;
 

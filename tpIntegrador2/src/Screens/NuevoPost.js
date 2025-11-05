@@ -63,55 +63,51 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 150,
-    padding: 20,
-    backgroundColor: "pink",
+    marginTop: 120,
+    padding: 16,
+    backgroundColor: "#f5f8fa",
     borderRadius: 10,
-    boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
+    borderWidth: 1,
+    borderColor: "#e1e8ed"
   },
-
   titulo: {
-    fontSize: 24,
-    marginBottom: 20,
+    fontSize: 22,
+    marginBottom: 12,
     fontWeight: "bold",
+    color: "#14171a"
   },
-
   botones: {
-    backgroundColor: "yellow",
+    backgroundColor: "#1da1f2",
     padding: 10,
-    borderRadius: 5,
-    marginBottom: 10,
+    borderRadius: 20,
+    marginBottom: 10
   },
-
   caja: {
     paddingHorizontal: 10,
-    marginTop: 20
+    marginTop: 10,
+    width: "100%",
+    maxWidth: 480
   },
-  
   form: {
-    backgroundColor: "white",
-    height: 20,
-    paddingVertical: 15,
-    paddingHorizontal: 10,
-    bordersize: 1,
-    borderColor: "#8e1f37ff",
-    borderStyle: "solid",
-    borderRadius: 6,
-    marginVertical: 10,
+    backgroundColor: "#ffffff",
+    height: 40,
+    paddingHorizontal: 12,
+    borderWidth: 1,
+    borderColor: "#e1e8ed",
+    borderRadius: 20,
+    marginVertical: 8
   },
-
   boton: {
-    backgroundColor:  "#eefe90ff",
-    paddingVertical: 6,
-    paddingHorizontal: 10,
-    borderRadius: 4,
+    backgroundColor: "#1da1f2",
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: 24,
     alignItems: "center",
-    borderSize: 6,
-    borderStyle: "solid",
-    borderColor: "#ffb73aff"
+    marginTop: 4
   },
   textoBoton: {
-    color: "#ffbd59ff",
+    color: "#ffffff",
+    fontWeight: "600"
   }
 });
 

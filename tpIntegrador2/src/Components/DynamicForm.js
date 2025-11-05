@@ -46,43 +46,37 @@ class DynamicForm extends Component{
 }
 
 const styles = StyleSheet.create({
-    contenedor: {
-        padding: 10,
-        backgroundColor: "pink",
-        borderRadius: 25,
-        margin: 15,
-        display:"flex",
-        flexDirection: "column",
-        alignItems:"center"
-    }, 
-    titulo: {
-        fontWeight: "bold",
-        color: "#b03060",
-        textAlign: "center",
-        fontSize: 16,
-        marginBottom: 5
-
-    },
-    texto: {
-        textAlign: "center",
-        color: "#c71585",
-        backgroundColor: "#ffe6ef",
-        padding: 10,
-        borderRadius: 15,
-        marginTop: 5
-
-    },
-    formulario: {
-       height: 20,
-       paddingVertical: 15,
-       borderWidth: 5,
-       borderColor: "#ffe6ef",
-       borderStyle: "solid",
-       borderRadius: 20,
-       marginVertical: 10,
-       textAlign: "center"
-    }
-
-})
+  contenedor: {
+    padding: 15,
+    backgroundColor: "#f5f8fa", // fondo gris azulado
+    borderRadius: 10,
+    margin: 15,
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#e1e8ed"
+  },
+  texto: {
+    textAlign: "center",
+    color: "#14171a", // texto principal
+    backgroundColor: "#ffffff",
+    padding: 10,
+    borderRadius: 8,
+    marginTop: 8,
+    borderWidth: 1,
+    borderColor: "#e1e8ed"
+  },
+  formulario: {
+    height: 40,
+    width: "90%",
+    borderWidth: 1,
+    borderColor: "#ccd6dd",
+    borderRadius: 20,
+    paddingHorizontal: 10,
+    marginVertical: 10,
+    backgroundColor: "#ffffff",
+    textAlign: "center",
+  },
+  
+});
 
 export default DynamicForm;
