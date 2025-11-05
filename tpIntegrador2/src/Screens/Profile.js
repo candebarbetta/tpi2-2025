@@ -3,6 +3,7 @@ import { Pressable } from "react-native";
 import { Text, View, StyleSheet } from "react-native";
 import { auth } from "../firebase/config";
 import { db } from "../firebase/config";
+import { FlatList } from "react-native-web";
 
 class Profile extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class Profile extends Component {
       }
 
     componentDidMount(){
-        db.collection("posts").where("owner", "==", auth.currentUser.email).orderBy("createdAt", "desc").onSnapshot(
+        db.collection("posts").where("email", "==", auth.currentUser.email).orderBy("createdAt", "desc").onSnapshot(
             docs =>{
                 let posts= [];
                 docs.forEach(doc => {
@@ -30,6 +31,11 @@ class Profile extends Component {
         )
     }
 
+    logout(){
+        auth.signOut();
+        this.props.navigation.navigate("Login")
+    }
+
 
 
     render(){
@@ -38,9 +44,17 @@ class Profile extends Component {
                 <Text style={styles.titulo}>Profile</Text>
                 <Text>Email: {auth.currentUser.email}</Text>
                 <Text>Nombre de usuario: {auth.currentUser.displayName}</Text>
-                <Pressable
-                    onPress={ ()=> props.navigation.navigate("Login")}>
-                    <Text style={styles.texto}>Desloguearse</Text>
+               
+                <Text style={styles.texto} >Mis posteos:</Text>
+                <FlatList
+                    data = {this.state.posts}
+                    keyExtractor = {item => item.id.toString()}
+                    renderItem = {({item}) => <Text>{item.data.texto}</Text>}
+                    
+                />
+                
+                <Pressable onPress={() => this.logout() }  >
+                    <Text style={styles.texto} >Desloguearse</Text>
                 </Pressable>
             </View>
         );
@@ -75,3 +89,4 @@ const styles = StyleSheet.create({
 })
 
 export default Profile;
+

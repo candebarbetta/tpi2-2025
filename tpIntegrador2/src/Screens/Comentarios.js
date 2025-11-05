@@ -20,7 +20,7 @@ class Comentarios extends Component{
     
               <FlatList
                 data={this.state.comments}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.id.toString()}
                 renderItem={({ item }) => <DynamicForm data={item} />}
               />
           </View> 

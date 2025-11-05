@@ -17,7 +17,6 @@ class Register extends Component {
         auth.createUserWithEmailAndPassword(email, password)
             .then(response => {
                 this.setState({ registered: true })
-                this.props.navigation.navigate("Login");
 
                 auth.currentUser.updateProfile({
                     displayName: this.state.displayName
@@ -36,6 +35,8 @@ class Register extends Component {
                 console.log(this.state);
 
             })
+
+            this.props.navigation.navigate("Login");
 
     };
 
