@@ -16,7 +16,6 @@ class Register extends Component {
     onSubmit(email, password) {
         auth.createUserWithEmailAndPassword(email, password)
             .then(response => {
-                this.setState({ registered: true })
 
                 auth.currentUser.updateProfile({
                     displayName: this.state.displayName

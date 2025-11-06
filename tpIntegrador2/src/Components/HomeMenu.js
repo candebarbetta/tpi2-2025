@@ -9,23 +9,27 @@ import { StyleSheet, View } from "react-native";
 import NuevoPost from "../Screens/NuevoPost";
 import Home from "../Screens/Home";
 import Profile from "../Screens/Profile";
+import Stack from "./Stack";
 
 const Tab = createBottomTabNavigator();
 
 function HomeMenu() {
     return (
         <View style={styles.contenedor}>
+            
+            
             <Tab.Navigator>
-                <Tab.Screen 
+                 <Tab.Screen 
                     options={{
                         headerShown: false,
                         tabBarIcon: () => (
                             <AntDesign name="home" size={24} color="black" style={styles.icono}/>
                         ),
                     }}
-                    name="Home" 
-                    component={Home} 
+                    name="Stack" 
+                    component={Stack} 
                 />
+                
             
                 <Tab.Screen 
                     options={{
