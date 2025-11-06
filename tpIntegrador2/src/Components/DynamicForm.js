@@ -39,7 +39,7 @@ class DynamicForm extends Component{
                     value={this.state.comentario}/> 
 
                 <Pressable onPress={() => this.onSubmit()}>
-                    <Text style={styles.texto} > subir el comentario </Text> 
+                    <Text style={styles.texto} > ↑ </Text> 
                 </Pressable>
 
                 
@@ -54,10 +54,10 @@ class DynamicForm extends Component{
 
 const styles = StyleSheet.create({
   contenedor: {
+    display: "flex",
+    flexDirection: "row", 
     padding: 15,
-    backgroundColor: "#f5f8fa", 
-    borderRadius: 10,
-    margin: 15,
+    backgroundColor: "#ffffff", 
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#e1e8ed"
@@ -66,11 +66,13 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#ffffffff", 
     backgroundColor: "#1DA1F2",
-    padding: 10,
-    borderRadius: 8,
+    padding: 8,
+    borderRadius: 20,
     marginTop: 8,
     borderWidth: 1,
-    borderColor: "#e1e8ed"
+    borderColor: "#e1e8ed",
+    marginLeft: 10,
+    fontSize: 20
   },
   formulario: {
     height: 40,

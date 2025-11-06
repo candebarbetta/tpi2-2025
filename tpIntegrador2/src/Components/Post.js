@@ -2,15 +2,16 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import firebase from "firebase";
 import { auth, db } from "../firebase/config";
+import EvilIcons from '@expo/vector-icons/EvilIcons';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Entypo from '@expo/vector-icons/Entypo';
 
 
 
 class Post extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    
   }
 
   actualizarDatos() {
@@ -32,15 +33,22 @@ class Post extends Component {
     
     return (
       <View style={styles.card}>
-        <Text style={styles.email}>{this.props.info.data.email}</Text>
+        <View style={styles.objetosArriba}>
+        <Text style={styles.email}><EvilIcons name="user" size={24} color="black" />{this.props.info.data.email}</Text>
+        <Text > ... </Text>
+        </View>
         <Text style={styles.texto}>{this.props.info.data.texto}</Text>
-        <Pressable style={styles.boton} onPress={() => this.actualizarDatos(this.props.info.data.likes)}>
-          <Text style={styles.textoBoton}> Likes:{this.props.info.data.likes.length} </Text>
+        <View style={styles.objetos}>
+        <Pressable  onPress={() => this.actualizarDatos(this.props.info.data.likes)}>
+          <Text style={styles.icono} > ♡{this.props.info.data.likes.length} </Text>
         </Pressable>
 
-        <Pressable style={styles.boton} onPress={() => this.props.nav.navigate("Comentarios", {id: this.props.info.id})}>
-          <Text style={styles.textoBoton}>Comentar</Text>
+        <Pressable  onPress={() => this.props.nav.navigate("Comentarios", {id: this.props.info.id})}>
+          <Text style={styles.icono}><FontAwesome5 name="comment-alt" size={15} color="black" /></Text>
         </Pressable>
+        <Text style={styles.icono}>⇌</Text>
+         <Text style={styles.icono}><Entypo name="share" size={15} color="black" /></Text>
+        </View>
       </View>
     );
   }
@@ -51,10 +59,7 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#ffffff",
     padding: 12,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#e1e8ed",
-    marginBottom: 10,
+    marginBottom: 2
   },
   email: {
     fontWeight: "bold",
@@ -78,6 +83,20 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontWeight: "600",
   },
+  objetos: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+    
+  },
+  icono: {
+    fontSize: 20
+  },
+  objetosArriba: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  }
   
 });
 

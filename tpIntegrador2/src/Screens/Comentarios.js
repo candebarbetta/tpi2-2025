@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import DynamicForm from "../Components/DynamicForm";
 import {  db } from "../firebase/config";
+import EvilIcons from '@expo/vector-icons/EvilIcons';
+import Entypo from '@expo/vector-icons/Entypo';
 
 class Comentarios extends Component {
   constructor(props) {
@@ -15,20 +17,16 @@ class Comentarios extends Component {
   }
 
   componentDidMount(){
-    db.collection("posts")
-    .where("id", "==", this.state.idPost)
-    .onSnapshot(docs=>{
-      let postArr=[];
-      docs.forEach(doc => {
-        postArr.push({
-          id: doc.id,
-          data: doc.data()
-        }) 
-      })
+   db.collection("posts")
+  .doc(this.state.idPost)
+  .onSnapshot(doc => {
+    if (doc.exists) {
       this.setState({
-        posts: postArr
-      })
-    })
+        posts: [{ id: doc.id, data: doc.data() }]
+      });
+    }
+  });
+
 
     db.collection("comments")
     .where("postId", "==", this.state.idPost)
@@ -60,28 +58,35 @@ class Comentarios extends Component {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.postCard}>
-            <Text style={styles.postEmail}>{item.data.email}</Text>
+            <View style={styles.objetosArriba}>
+            <Text style={styles.postEmail}><EvilIcons name="user" size={24} color="black" />{item.data.email}</Text>
+             <Text > ... </Text>
+            </View>
             <Text style={styles.postText}>{item.data.texto}</Text>
-            <Text style={styles.likes}>
-             Likes❤️ : {item.data.likes.length}
-            </Text>
+            <View style={styles.objetos}>
+            <Text style={styles.likes}>♡{item.data.likes.length}</Text>
+            <Text style={styles.icono}>⇌</Text>
+            <Text style={styles.icono}><Entypo name="share" size={15} color="black" /></Text>
+            </View>
             </View>
             )}
         />
 
-        
-        <DynamicForm idPost={this.state.idPost} />
 
         <FlatList
           data={this.state.comments}
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <View  style={styles.commentCard}>
+              <View style={styles.objetosArriba}>
               <Text style={styles.commentEmail}>{item.data.email}</Text>
+              <Text > ... </Text>
+              </View>
               <Text style={styles.commentText}>{item.data.texto}</Text>
             </View>
           )}
         />
+         <DynamicForm idPost={this.state.idPost} />
       </View>
     )
   }
@@ -97,11 +102,8 @@ const styles = StyleSheet.create({
   },
   postCard: {
     backgroundColor: "#ffffff",
-    borderRadius: 10,
     padding: 12,
     marginBottom: 10,
-    borderWidth: 1,
-    borderColor: "#e1e8ed"
   },
   postEmail: {
     fontWeight: "bold",
@@ -110,20 +112,17 @@ const styles = StyleSheet.create({
   },
   postText: {
     fontSize: 16,
-    color: "#ffffffff",
+    color: "#000000ff",
     marginBottom: 6,
   },
   likes: {
-    fontSize: 14,
+    fontSize: 20,
     color: "#657786",
   },
   commentCard: {
     backgroundColor: "#ffffff",
-    borderRadius: 10,
-    padding: 10,
-    marginBottom: 8,
-    borderWidth: 1,
-    borderColor: "#e1e8ed",
+    padding: 20,
+    marginBottom: 1,
   },
   commentEmail: {
     fontWeight: "bold",
@@ -131,9 +130,20 @@ const styles = StyleSheet.create({
   },
   commentText: {
     fontSize: 15,
-    color: "#ffffffff",
+    color: "#000000ff",
     marginTop: 4,
   },
+   objetosArriba: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+   objetos: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between"
+    
+  }
 });
 
 

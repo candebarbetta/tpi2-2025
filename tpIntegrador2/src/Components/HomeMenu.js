@@ -23,7 +23,7 @@ function HomeMenu() {
                     options={{
                         headerShown: false,
                         tabBarIcon: () => (
-                            <AntDesign name="home" size={24} color="black" />
+                            <AntDesign name="home" size={24} color="black" style={styles.icono} />
                         ),
                     }}
                     name="Home" 

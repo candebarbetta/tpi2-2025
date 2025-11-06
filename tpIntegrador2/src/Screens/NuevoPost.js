@@ -58,11 +58,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: 120,
-    padding: 16,
-    backgroundColor: "#f5f8fa",
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#e1e8ed"
   },
   titulo: {
     fontSize: 22,

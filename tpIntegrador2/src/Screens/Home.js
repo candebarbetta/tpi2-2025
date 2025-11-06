@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import { db } from "../firebase/config";
 import Post from "../Components/Post";
-import AntDesign from '@expo/vector-icons/AntDesign';
 
 class Home extends Component {
   constructor(props) {
@@ -34,7 +33,6 @@ class Home extends Component {
     
     return (
       <View style={styles.container}>
-        <AntDesign name="twitter" size={24} color="blue" style={styles.logo} />
         <Text style={styles.texto}>Home</Text>
 
         <FlatList
@@ -48,7 +46,7 @@ class Home extends Component {
   }
 }
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f5f8fa",
@@ -56,24 +54,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     padding: 12
   },
-  logo: {
-    alignSelf: "center",
-    color: "#1DA1F2", // azul Twitter
-    marginTop: 10,
-    marginBottom: 5,
-  },
   texto: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: "#14171a",
-    backgroundColor: "#ffffff",
-    borderWidth: 1,
-    borderColor: "#e1e8ed",
-    borderRadius: 8,
-    padding: 15,
-    marginTop: 16,
-    textAlign: "center",
-    alignSelf: "center"
+    alignSelf: "center",
+    fontSize: 20,
+    marginBottom: 12
   },
 });
 
