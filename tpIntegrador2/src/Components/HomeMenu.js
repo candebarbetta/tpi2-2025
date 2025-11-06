@@ -6,6 +6,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import Feather from '@expo/vector-icons/Feather';
 import { StyleSheet, View } from "react-native";
 
+
 import NuevoPost from "../Screens/NuevoPost";
 import Profile from "../Screens/Profile";
 import StackNav from "./StackNav";
@@ -20,9 +21,12 @@ function HomeMenu() {
             <Tab.Navigator>
                  <Tab.Screen 
                     options={{
-                        headerShown: false
+                        headerShown: false,
+                        tabBarIcon: () => (
+                            <AntDesign name="home" size={24} color="black" />
+                        ),
                     }}
-                    name="StackNav" 
+                    name="Home" 
                     component={StackNav} 
                 />
                 
