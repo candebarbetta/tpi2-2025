@@ -8,7 +8,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [],
+      la: [],
     };
   }
 
@@ -29,6 +29,8 @@ class Home extends Component {
   }
 
   render() {
+    console.log(this.props);
+    
     return (
       <View style={styles.container}>
         <AntDesign name="twitter" size={24} color="blue" style={styles.logo} />
@@ -37,7 +39,7 @@ class Home extends Component {
         <FlatList
           data={this.state.posts}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <Post info={item} />}
+          renderItem={({ item }) => <Post info={item} nav={this.props.navigation} />}
         />
 
       </View>

@@ -28,6 +28,8 @@ class Post extends Component {
 
 
   render() {
+    console.log(this.props);
+    
     return (
       <View style={styles.card}>
         <Text style={styles.email}>{this.props.info.data.email}</Text>
@@ -36,7 +38,7 @@ class Post extends Component {
           <Text style={styles.textoBoton}> Likes:{this.props.info.data.likes.length} </Text>
         </Pressable>
 
-        <Pressable style={styles.boton} onPress={() => this.props.navigation.navigate("Comentarios", { screen: 'Comentarios' })}>
+        <Pressable style={styles.boton} onPress={() => this.props.nav.navigate("Comentarios", {id: this.props.info.id})}>
           <Text>Comentar</Text>
         </Pressable>
       </View>

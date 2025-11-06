@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Pressable } from "react-native";
 import { Text, View, StyleSheet } from "react-native";
 import { FlatList, TextInput } from "react-native-web";
+import { auth, db } from "../firebase/config";
+
+
 
 class DynamicForm extends Component{
     constructor(props) {
@@ -14,7 +17,14 @@ class DynamicForm extends Component{
 
 
     onSubmit(){
-        console.log(this.state);
+        db.collection("comments").add({
+          email: auth.currentUser.email,
+          texto: this.state.comentario,
+          createdAt: Date.now(),
+          postId: this.props.idPost
+        })
+        .then(response => console.log(response))
+        .catch(e => console.log(e))
         
     };
     

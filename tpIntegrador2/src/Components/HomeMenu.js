@@ -7,9 +7,8 @@ import Feather from '@expo/vector-icons/Feather';
 import { StyleSheet, View } from "react-native";
 
 import NuevoPost from "../Screens/NuevoPost";
-import Home from "../Screens/Home";
 import Profile from "../Screens/Profile";
-import Stack from "./Stack";
+import StackNav from "./StackNav";
 
 const Tab = createBottomTabNavigator();
 
@@ -21,13 +20,10 @@ function HomeMenu() {
             <Tab.Navigator>
                  <Tab.Screen 
                     options={{
-                        headerShown: false,
-                        tabBarIcon: () => (
-                            <AntDesign name="home" size={24} color="black" style={styles.icono}/>
-                        ),
+                        headerShown: false
                     }}
-                    name="Stack" 
-                    component={Stack} 
+                    name="StackNav" 
+                    component={StackNav} 
                 />
                 
             

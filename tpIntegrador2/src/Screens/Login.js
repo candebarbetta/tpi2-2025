@@ -24,7 +24,7 @@ class Login extends Component {
         }
         auth.signInWithEmailAndPassword(email, password)
             .then((response) => {
-                this.props.navigation.navigate('HomeMenu', { screen: 'Home' })
+                this.props.navigation.navigate('HomeMenu')
             })
             .catch(error => {
                 this.setState({ error: 'Credenciales inválidas.' })
