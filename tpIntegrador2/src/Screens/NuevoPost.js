@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { db, auth } from "../firebase/config";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
+import firebase from "firebase";
 
 
 class NuevoPost extends Component {
@@ -22,7 +23,7 @@ class NuevoPost extends Component {
       })
       .then()
       .catch(e => console.log(e))
-    this.props.navigation.navigate("Home")
+    this.props.navigation.navigate("HomeMenu")
   }
 
   render() {

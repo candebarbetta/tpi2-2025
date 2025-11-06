@@ -39,7 +39,7 @@ class Post extends Component {
         </Pressable>
 
         <Pressable style={styles.boton} onPress={() => this.props.nav.navigate("Comentarios", {id: this.props.info.id})}>
-          <Text>Comentar</Text>
+          <Text style={styles.textoBoton}>Comentar</Text>
         </Pressable>
       </View>
     );
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     borderRadius: 20,
     alignItems: "center",
-    marginTop: 5,
+    marginTop: 5
   },
   textoBoton: {
     color: "#ffffff",

@@ -13,6 +13,14 @@ class Login extends Component {
         }
     }
 
+    componentDidMount() {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                this.props.navigation.navigate("HomeMenu");
+            }
+        });
+    }
+
     onSubmit(email, password) {
         if (!email.includes("@")) {
             this.setState({ error: 'El mail esta mal formateado' })
@@ -74,7 +82,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         textAlign: "center",
         fontSize: 20,
-        color: "#14171a",
+        color: "#000000ff",
         marginBottom: 12,
     },
     container: {

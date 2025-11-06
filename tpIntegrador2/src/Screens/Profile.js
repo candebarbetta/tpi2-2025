@@ -63,32 +63,70 @@ class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
-    contenedor: {
-        padding: 12,
-        backgroundColor: "#f5f8fa",
-        borderRadius: 10,
-        margin: 15,
-        borderWidth: 1,
-        borderColor: "#e1e8ed"
-    },
-    titulo: {
-        fontWeight: "bold",
-        color: "#14171a",
-        textAlign: "center",
-        fontSize: 18,
-        marginBottom: 10
-    },
-    texto: {
-        textAlign: "center",
-        color: "#14171a",
-        backgroundColor: "#ffffff",
-        padding: 10,
-        borderRadius: 20,
-        borderWidth: 1,
-        borderColor: "#e1e8ed",
-        marginTop: 8
-    }
+  pantalla: {
+    flex: 1,
+    backgroundColor: "#f5f8fa", // fondo gris claro como Twitter
+    padding: 10,
+  },
+  contenedor: {
+    backgroundColor: "#ffffff",
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: "#e1e8ed",
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
+  },
+  titulo: {
+    fontWeight: "700",
+    color: "#14171a",
+    textAlign: "center",
+    fontSize: 22,
+    marginBottom: 12,
+  },
+  info: {
+    textAlign: "center",
+    color: "#657786",
+    fontSize: 16,
+    marginBottom: 4,
+  },
+  subtitulo: {
+    fontSize: 18,
+    fontWeight: "600",
+    color: "#1DA1F2",
+    marginTop: 16,
+    marginBottom: 10,
+  },
+  postCard: {
+    backgroundColor: "#f7f9fa",
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#e1e8ed",
+    padding: 12,
+    marginBottom: 10,
+  },
+  postTexto: {
+    fontSize: 16,
+    color: "#14171a",
+  },
+  boton: {
+    backgroundColor: "#1DA1F2",
+    borderRadius: 25,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    alignSelf: "center",
+    marginTop: 20,
+  },
+  botonTexto: {
+    color: "#ffffff",
+    fontWeight: "600",
+    fontSize: 16,
+    textAlign: "center",
+  },
 });
+
 
 
 export default Profile;

@@ -42,6 +42,7 @@ class Register extends Component {
     render() {
         return (
             <View style={styles.container}>
+                
                 <TextInput
                     style={styles.texto}
                     keyboardType='email-address'

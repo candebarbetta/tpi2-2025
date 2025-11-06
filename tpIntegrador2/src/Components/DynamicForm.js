@@ -42,10 +42,7 @@ class DynamicForm extends Component{
                     <Text style={styles.texto} > subir el comentario </Text> 
                 </Pressable>
 
-                <View style={styles.texto}>
-                    <Text>Datos ingresados:</Text>
-                    <Text>{this.state.comentario}</Text>
-                </View>
+                
 
 
                
@@ -58,7 +55,7 @@ class DynamicForm extends Component{
 const styles = StyleSheet.create({
   contenedor: {
     padding: 15,
-    backgroundColor: "#f5f8fa", // fondo gris azulado
+    backgroundColor: "#f5f8fa", 
     borderRadius: 10,
     margin: 15,
     alignItems: "center",
@@ -67,8 +64,8 @@ const styles = StyleSheet.create({
   },
   texto: {
     textAlign: "center",
-    color: "#14171a", // texto principal
-    backgroundColor: "#ffffff",
+    color: "#ffffffff", 
+    backgroundColor: "#1DA1F2",
     padding: 10,
     borderRadius: 8,
     marginTop: 8,

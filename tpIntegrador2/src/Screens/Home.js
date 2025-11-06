@@ -8,6 +8,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      posts: [],
       la: [],
     };
   }
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#e1e8ed",
     borderRadius: 8,
-    padding: 10,
+    padding: 15,
     marginTop: 16,
     textAlign: "center",
     alignSelf: "center"
