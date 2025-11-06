@@ -20,7 +20,7 @@ class Register extends Component {
 
                 auth.currentUser.updateProfile({
                     displayName: this.state.displayName
-                  });
+                });
 
                 db.collection('users').add({
                     email: email,
@@ -36,17 +36,13 @@ class Register extends Component {
 
             })
 
-            this.props.navigation.navigate("Login");
+        this.props.navigation.navigate("Login");
 
     };
 
     render() {
         return (
             <View style={styles.container}>
-                <Pressable style={styles.boton} onPress={() => this.props.navigation.navigate('Login')}>
-                    <Text style={styles.text}>Ya tengo cuenta</Text>
-                </Pressable>
-
                 <TextInput
                     style={styles.texto}
                     keyboardType='email-address'
@@ -74,52 +70,53 @@ class Register extends Component {
                     <Text style={styles.boton2}>Registrate</Text>
                 </Pressable>
 
-                <Text>{this.state.email}</Text>
-                <Text>{this.state.displayName}</Text>
-                <Text>{this.state.password}</Text>
+                <Pressable style={styles.boton} onPress={() => this.props.navigation.navigate('Login')}>
+                    <Text style={styles.text}>Ya tengo cuenta</Text>
+                </Pressable>
+
             </View>
         )
     }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#f5f8fa",
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  boton: {
-    backgroundColor: "#1da1f2",
-    padding: 12,
-    marginVertical: 10,
-    borderRadius: 24,
-    width: "70%",
-    alignItems: "center"
-  },
-  boton2: {
-    backgroundColor: "#1da1f2",
-    padding: 12,
-    marginVertical: 10,
-    borderRadius: 24,
-    width: "100%",
-    textAlign: "center",
-    color: "#fff",
-    fontWeight: "bold"
-  },
-  text: {
-    color: "#fff",
-    fontWeight: "bold"
-  },
-  texto: {
-    width: "70%",
-    borderWidth: 1,
-    borderColor: "#e1e8ed",
-    borderRadius: 20,
-    padding: 10,
-    marginVertical: 8,
-    backgroundColor: "#ffffff"
-  }
+    container: {
+        flex: 1,
+        backgroundColor: "#f5f8fa",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    boton: {
+        backgroundColor: "#1da1f2",
+        padding: 12,
+        marginVertical: 10,
+        borderRadius: 24,
+        width: "70%",
+        alignItems: "center"
+    },
+    boton2: {
+        backgroundColor: "#1da1f2",
+        padding: 12,
+        marginVertical: 10,
+        borderRadius: 24,
+        width: "100%",
+        textAlign: "center",
+        color: "#fff",
+        fontWeight: "bold"
+    },
+    text: {
+        color: "#fff",
+        fontWeight: "bold"
+    },
+    texto: {
+        width: "70%",
+        borderWidth: 1,
+        borderColor: "#e1e8ed",
+        borderRadius: 20,
+        padding: 10,
+        marginVertical: 8,
+        backgroundColor: "#ffffff"
+    }
 });
 
 export default Register;

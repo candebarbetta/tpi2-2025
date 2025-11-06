@@ -5,23 +5,24 @@ import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 
 class NuevoPost extends Component {
   constructor(props) {
-    super(props);    
+    super(props);
     this.state = {
       email: '',
       texto: ''
     }
   }
 
-  onSubmit(email, texto){
+  onSubmit(email, texto) {
     db.collection('posts')
       .add({
-        email: email,
+        email: auth.currentUser.email,
         texto: texto,
         createdAt: Date.now(),
         likes: []
       })
       .then()
       .catch(e => console.log(e))
+    this.props.navigation.navigate("Home")
   }
 
   render() {
@@ -29,34 +30,26 @@ class NuevoPost extends Component {
       <View style={styles.container}>
         <Text style={styles.titulo}>Posteos</Text>
         <View style={styles.caja}>
-        
-          <TextInput 
-            style={styles.form}
-            keyboardType='email-address' 
-            placeholder='email' 
-            onChangeText={ text => this.setState({email:text}) }
-            value={this.state.email} 
-          />
-          
-          <TextInput 
+
+          <TextInput
             style={styles.form}
             keyboardType="default"
-            placeholder="texto"
-            onChangeText={text => this.setState({texto:text})}
+            placeholder="Publica algo"
+            onChangeText={text => this.setState({ texto: text })}
             value={this.state.texto}
           />
 
           <Pressable style={styles.boton} onPress={() => this.onSubmit(this.state.email, this.state.texto, this.state.likes)}>
-            <Text style={styles.textoBoton}> Postear </Text> 
-          </Pressable> 
+            <Text style={styles.textoBoton}> Postear </Text>
+          </Pressable>
 
 
-        </View>  
+        </View>
       </View>
     );
   }
 }
- 
+
 const styles = StyleSheet.create({
   container: {
     display: "flex",
