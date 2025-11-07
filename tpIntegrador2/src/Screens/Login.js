@@ -12,7 +12,18 @@ class Login extends Component {
             error: ""
         }
     }
-
+    
+    componentDidMount() {
+        auth.onAuthStateChanged(user => {
+            console.log('Usuario ya logueado');
+            if (user) {
+                this.props.navigation.navigate('HomeMenu', {
+                    screen: "StackNav",
+                    params: { screen: 'Home' }
+                });
+            }
+        });
+    }
 
     onSubmit(email, password) {
         if (!email.includes("@")) {
