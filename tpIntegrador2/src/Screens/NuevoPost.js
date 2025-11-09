@@ -23,7 +23,7 @@ class NuevoPost extends Component {
       })
       .then()
       .catch(e => console.log(e))
-    this.props.navigation.navigate("HomeMenu")
+    this.props.navigation.navigate("Home")
   }
 
   render() {

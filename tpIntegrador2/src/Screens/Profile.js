@@ -3,6 +3,7 @@ import { Pressable, Text, View, StyleSheet, FlatList } from "react-native";
 import { auth, db } from "../firebase/config";
 import EvilIcons from '@expo/vector-icons/EvilIcons';
 import Entypo from '@expo/vector-icons/Entypo';
+import Post from "../Components/Post";
 
 class Profile extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class Profile extends Component {
 
   render() {
     return (
-      <View >
+      <View style={styles.granContenedor} >
 
         <View style={styles.contenedor}>
           <View style={styles.usuario}>
@@ -53,18 +54,7 @@ class Profile extends Component {
             data={this.state.posts}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
-              <View style={styles.postCard}>
-                          <View style={styles.objetosArriba}>
-                          <Text style={styles.postEmail}>{item.data.email}</Text>
-                           <Text > ... </Text>
-                          </View>
-                          <Text style={styles.postText}>{item.data.texto}</Text>
-                          <View style={styles.objetos}>
-                          <Text style={styles.likes}>♡{item.data.likes.length}</Text>
-                          <Text style={styles.icono}>⇌</Text>
-                          <Text style={styles.icono}><Entypo name="share" size={15} color="black" /></Text>
-                          </View>
-                          </View>
+                <Post info={item} nav={this.props.navigation} />
             )}
           />
 
@@ -85,6 +75,7 @@ const styles = StyleSheet.create({
     padding: 12,
     borderWidth: 1,
     borderColor: "#E1E8ED",
+    flex: 1
   },
   usuario: {
    display: "flex",
@@ -124,10 +115,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F8FA",
     padding: 10,
     marginBottom: 1,
+    
   },
   postTexto: {
     fontSize: 15,
     color: "#14171A",
+    
   },
   boton: {
     backgroundColor: "#55ACEE",
@@ -160,6 +153,9 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around"
+  },
+  granContenedor: {
+    flex: 1
   }
 });
 
