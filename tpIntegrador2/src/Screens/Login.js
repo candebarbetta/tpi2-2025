@@ -15,7 +15,6 @@ class Login extends Component {
     
     componentDidMount() {
         auth.onAuthStateChanged(user => {
-            console.log('Usuario ya logueado');
             if (user) {
                 this.props.navigation.navigate('HomeMenu', {
                     screen: "StackNav",

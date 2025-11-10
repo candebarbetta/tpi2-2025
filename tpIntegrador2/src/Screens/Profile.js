@@ -42,7 +42,7 @@ class Profile extends Component {
         <View style={styles.contenedor}>
           <View style={styles.usuario}>
           <Text style={styles.infoImportante}><EvilIcons name="user" size={24} color="black" />{auth.currentUser.email}</Text>
-          <Text style={styles.info}>{auth.currentUser.displayName}</Text>
+          <Text style={styles.info}>{auth.currentUser.usuario}</Text>
           </View>
           
           <View style={styles.separador}>

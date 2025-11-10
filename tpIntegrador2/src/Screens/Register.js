@@ -8,7 +8,7 @@ class Register extends Component {
         super(props);
         this.state = {
             email: "",
-            displayName: "",
+            usuario: "",
             password: ""
         }
     }
@@ -17,13 +17,9 @@ class Register extends Component {
         auth.createUserWithEmailAndPassword(email, password)
             .then(response => {
 
-                auth.currentUser.updateProfile({
-                    displayName: this.state.displayName
-                });
-
                 db.collection('users').add({
                     email: email,
-                    displayName: this.state.displayName,
+                    usuario: this.state.usuario,
                     createdAt: Date.now(),
                 })
                     .then(response => console.log(response))
@@ -54,8 +50,8 @@ class Register extends Component {
                     style={styles.texto}
                     keyboardType='default'
                     placeholder='Username'
-                    onChangeText={text => this.setState({ displayName: text })}
-                    value={this.state.displayName}
+                    onChangeText={text => this.setState({ usuario: text })}
+                    value={this.state.usuario}
                 />
                 <TextInput
                     style={styles.texto}
