@@ -4,67 +4,59 @@ import { Text, View, StyleSheet } from "react-native";
 import { FlatList, TextInput } from "react-native-web";
 import { auth, db } from "../firebase/config";
 
-
-
-class DynamicForm extends Component{
-    constructor(props) {
-        super(props);
-        this.state = {
-            comentario: "",
-            value: "",
-        }
-      };
-
-
-    onSubmit(){
-        db.collection("comments").add({
-          email: auth.currentUser.email,
-          texto: this.state.comentario,
-          createdAt: Date.now(),
-          postId: this.props.idPost
-        })
-        .then(response => console.log(response))
-        .catch(e => console.log(e))
-        
-    };
-    
-
-    render(){
-        return(
-            <View style={styles.contenedor}>
-                <TextInput style={styles.formulario} 
-                    keyboardType="default"
-                    placeholder="comentario" 
-                    onChangeText={ text => this.setState({comentario:text}) }
-                    value={this.state.comentario}/> 
-
-                <Pressable onPress={() => this.onSubmit()}>
-                    <Text style={styles.texto} > ↑ </Text> 
-                </Pressable>
-
-                
-
-
-               
-            </View>
-        );
-        
+class DynamicForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      comentario: "",
+      value: "",
     }
+  };
+
+
+  onSubmit() {
+    db.collection("comments").add({
+      email: auth.currentUser.email,
+      texto: this.state.comentario,
+      createdAt: Date.now(),
+      postId: this.props.idPost
+    })
+      .then(response => console.log(response))
+      .catch(e => console.log(e))
+
+  };
+
+  render() {
+    return (
+      <View style={styles.contenedor}>
+        <TextInput style={styles.formulario}
+          keyboardType="default"
+          placeholder="comentario"
+          onChangeText={text => this.setState({ comentario: text })}
+          value={this.state.comentario} />
+
+        <Pressable onPress={() => this.onSubmit()}>
+          <Text style={styles.texto} > ↑ </Text>
+        </Pressable>
+      </View>
+    );
+
+  }
 }
 
 const styles = StyleSheet.create({
   contenedor: {
     display: "flex",
-    flexDirection: "row", 
+    flexDirection: "row",
     padding: 15,
-    backgroundColor: "#ffffff", 
+    backgroundColor: "#ffffff",
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#e1e8ed"
   },
   texto: {
     textAlign: "center",
-    color: "#ffffffff", 
+    color: "#ffffffff",
     backgroundColor: "#1DA1F2",
     padding: 8,
     borderRadius: 20,
@@ -85,7 +77,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     textAlign: "center",
   },
-  
+
 });
 
 export default DynamicForm;

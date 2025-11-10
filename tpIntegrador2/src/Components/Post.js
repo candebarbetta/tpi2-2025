@@ -6,8 +6,6 @@ import EvilIcons from '@expo/vector-icons/EvilIcons';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Entypo from '@expo/vector-icons/Entypo';
 
-
-
 class Post extends Component {
   constructor(props) {
     super(props);

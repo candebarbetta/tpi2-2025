@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Pressable, Text, View, StyleSheet, FlatList } from "react-native";
 import { auth, db } from "../firebase/config";
 import EvilIcons from '@expo/vector-icons/EvilIcons';
-import Entypo from '@expo/vector-icons/Entypo';
 import Post from "../Components/Post";
 
 class Profile extends Component {
@@ -41,20 +40,21 @@ class Profile extends Component {
 
         <View style={styles.contenedor}>
           <View style={styles.usuario}>
-          <Text style={styles.infoImportante}><EvilIcons name="user" size={24} color="black" />{auth.currentUser.email}</Text>
-          <Text style={styles.info}>{auth.currentUser.usuario}</Text>
+            <Text style={styles.infoImportante}><EvilIcons name="user" size={24} color="black" />{auth.currentUser.email}</Text>
+            <Text style={styles.info}>{auth.currentUser.usuario}</Text>
+          </View>
+
+          <View style={styles.separador}>
+            <Text style={styles.subtituloMejor}>Tweets</Text>
+            <Text style={styles.subtitulo}>|</Text>
+            <Text style={styles.subtitulo}>Likes</Text>
           </View>
           
-          <View style={styles.separador}>
-          <Text style={styles.subtituloMejor}>Tweets</Text>
-          <Text style={styles.subtitulo}>|</Text>
-          <Text style={styles.subtitulo}>Likes</Text>
-          </View>
           <FlatList
             data={this.state.posts}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
-                <Post info={item} nav={this.props.navigation} />
+              <Post info={item} nav={this.props.navigation} />
             )}
           />
 
@@ -68,7 +68,7 @@ class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
-  
+
   contenedor: {
     backgroundColor: "#ffffff",
     borderRadius: 6,
@@ -78,11 +78,11 @@ const styles = StyleSheet.create({
     flex: 1
   },
   usuario: {
-   display: "flex",
-   flexDirection: "column",
-   alignItems: "left",
-   marginBottom: 1
-  
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "left",
+    marginBottom: 1
+
   },
   info: {
     color: "#000000ff",
@@ -115,12 +115,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F8FA",
     padding: 10,
     marginBottom: 1,
-    
+
   },
   postTexto: {
     fontSize: 15,
     color: "#14171A",
-    
+
   },
   boton: {
     backgroundColor: "#55ACEE",
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between"
-    
+
   },
   icono: {
     fontSize: 20

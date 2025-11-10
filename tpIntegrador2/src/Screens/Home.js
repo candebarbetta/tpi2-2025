@@ -7,8 +7,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      posts: [],
-      la: [],
+      posts: []
     };
   }
 
@@ -30,7 +29,7 @@ class Home extends Component {
 
   render() {
     console.log(this.props);
-    
+
     return (
       <View style={styles.container}>
         <Text style={styles.texto}>Home</Text>

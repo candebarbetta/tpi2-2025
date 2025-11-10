@@ -48,7 +48,6 @@ class Login extends Component {
             <View style={styles.container}>
                 <Text style={styles.titulo}>Login</Text>
 
-
                 <TextInput
                     style={styles.texto}
                     keyboardType='email-address'

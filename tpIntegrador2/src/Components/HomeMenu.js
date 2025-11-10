@@ -3,7 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AntDesign from '@expo/vector-icons/AntDesign';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import Feather from '@expo/vector-icons/Feather';
 import { StyleSheet, View } from "react-native";
 
 
@@ -16,41 +15,40 @@ const Tab = createBottomTabNavigator();
 function HomeMenu() {
     return (
         <View style={styles.contenedor}>
-            
-            
+
             <Tab.Navigator>
-                 <Tab.Screen 
+                <Tab.Screen
                     options={{
                         headerShown: false,
                         tabBarIcon: () => (
                             <AntDesign name="home" size={24} color="black" style={styles.icono} />
                         ),
                     }}
-                    name="Home" 
-                    component={StackNav} 
+                    name="Home"
+                    component={StackNav}
                 />
-                
-            
-                <Tab.Screen 
+
+
+                <Tab.Screen
                     options={{
                         headerShown: false,
                         tabBarIcon: () => (
-                            <AntDesign name="plus" size={24} color="black" style={styles.icono}/>
+                            <AntDesign name="plus" size={24} color="black" style={styles.icono} />
                         ),
                     }}
-                    name="NuevoPost" 
-                    component={NuevoPost} 
+                    name="NuevoPost"
+                    component={NuevoPost}
                 />
-            
-                <Tab.Screen 
-                    name="Profile" 
-                    component={Profile} 
+
+                <Tab.Screen
+                    name="Profile"
+                    component={Profile}
                     options={{
-                        headerShown: false, 
+                        headerShown: false,
                         tabBarIcon: () => (
-                            <MaterialCommunityIcons name="face-woman-profile" size={24} color="black" style={styles.icono}/>
+                            <MaterialCommunityIcons name="face-woman-profile" size={24} color="black" style={styles.icono} />
                         ),
-                    }} 
+                    }}
                 />
             </Tab.Navigator>
         </View>

@@ -30,15 +30,12 @@ class Register extends Component {
                 console.log(this.state);
 
             })
-
-        this.props.navigation.navigate("Login");
-
     };
 
     render() {
         return (
             <View style={styles.container}>
-                
+
                 <TextInput
                     style={styles.texto}
                     keyboardType='email-address'
