@@ -16,17 +16,19 @@ class Comentarios extends Component {
     };
   }
 
-  componentDidMount() {
-    db.collection("posts")
-      .doc(this.state.idPost)
-      .onSnapshot(doc => {
-        if (doc.exists) {
-          this.setState({
-            posts: [{ id: doc.id, data: doc.data() }]
-          });
-        }
+componentDidMount() {
+  db.collection("posts")
+    .where("idPost", "==", this.state.idPost)
+    .onSnapshot(docs => {
+      let posts = [];
+      docs.forEach(doc => {
+        posts.push({
+          id: doc.id,
+          data: doc.data()
+        });
       });
-
+      this.setState({ posts: posts });
+    });
 
     db.collection("comments")
       .where("postId", "==", this.state.idPost)
@@ -39,7 +41,9 @@ class Comentarios extends Component {
             data: doc.data()
           });
         });
-        this.setState({ comments: comments });
+        this.setState({ 
+          comments: comments 
+        });
       });
   };
 

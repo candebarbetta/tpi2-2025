@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Pressable } from "react-native";
 import { Text, View, StyleSheet } from "react-native";
-import { FlatList, TextInput } from "react-native-web";
+import { FlatList, TextInput } from "react-native"; 
 import { auth, db } from "../firebase/config";
 
 class DynamicForm extends Component {
