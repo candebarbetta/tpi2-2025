@@ -45,9 +45,9 @@ class Profile extends Component {
           </View>
 
           <View style={styles.separador}>
-            <Text style={styles.subtituloMejor}>Tweets</Text>
+            <Text style={styles.subtituloMejor}>Mis Tweets</Text>
             <Text style={styles.subtitulo}>|</Text>
-            <Text style={styles.subtitulo}>Likes</Text>
+            <Text style={styles.subtitulo}>Mis Likes</Text>
           </View>
           
           <FlatList
