@@ -18,17 +18,15 @@ class Comentarios extends Component {
 
 componentDidMount() {
   db.collection("posts")
-    .where("idPost", "==", this.state.idPost)
-    .onSnapshot(docs => {
-      let posts = [];
-      docs.forEach(doc => {
-        posts.push({
-          id: doc.id,
-          data: doc.data()
-        });
+    .doc(this.state.idPost)
+    .onSnapshot(doc => {
+      let posts = []; 
+      posts.push({
+        id: doc.id,
+        data: doc.data()
       });
-      this.setState({ posts: posts });
-    });
+      this.setState({ posts: posts });});
+    
 
     db.collection("comments")
       .where("postId", "==", this.state.idPost)

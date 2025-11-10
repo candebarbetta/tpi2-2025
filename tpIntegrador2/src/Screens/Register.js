@@ -9,11 +9,20 @@ class Register extends Component {
         this.state = {
             email: "",
             usuario: "",
-            password: ""
+            password: "",
+            error: ""
         }
     }
 
     onSubmit(email, password) {
+        if (!email.includes("@")) {
+            this.setState({ error: 'El mail esta mal formateado' })
+            return
+        }
+        if (password.length < 6) {
+            this.setState({ error: 'La contraseña debe tener un minimo de 6 caracteres' })
+            return
+        }
         auth.createUserWithEmailAndPassword(email, password)
             .then(response => {
 
@@ -22,7 +31,10 @@ class Register extends Component {
                     usuario: this.state.usuario,
                     createdAt: Date.now(),
                 })
-                    .then(response => console.log(response))
+                    .then(() => {
+                        auth.signOut();
+                        this.props.navigation.navigate("Login");
+                    } )
                     .catch(e => console.log(e))
             })
             .catch(error => {
@@ -30,6 +42,9 @@ class Register extends Component {
                 console.log(this.state);
 
             })
+        
+           
+              
     };
 
     render() {
@@ -58,6 +73,8 @@ class Register extends Component {
                     onChangeText={text => this.setState({ password: text })}
                     value={this.state.password}
                 />
+
+                <Text>{this.state.error}</Text>
 
                 <Pressable onPress={() => this.onSubmit(this.state.email, this.state.password)} >
                     <Text style={styles.boton2}>Registrate</Text>

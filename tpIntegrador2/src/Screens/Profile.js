@@ -9,6 +9,7 @@ class Profile extends Component {
     super(props);
     this.state = {
       posts: [],
+      usuario: {}
     };
   }
 
@@ -27,6 +28,23 @@ class Profile extends Component {
           posts: posts,
         });
       });
+
+      db.collection("users")
+      .where("email", "==", auth.currentUser.email)
+      .onSnapshot((docs) => {
+        let usuarios = [];
+        docs.forEach((doc) => {
+          usuarios.push({
+            id: doc.id,
+            data: doc.data(),
+          });
+        });
+        this.setState({
+          usuario: usuarios[0].data,
+        });
+      });
+
+
   }
 
   logout() {
@@ -35,13 +53,15 @@ class Profile extends Component {
   }
 
   render() {
+    console.log(this.state.usuario);
+    
     return (
       <View style={styles.granContenedor} >
 
         <View style={styles.contenedor}>
           <View style={styles.usuario}>
             <Text style={styles.infoImportante}><EvilIcons name="user" size={24} color="black" />{auth.currentUser.email}</Text>
-            <Text style={styles.info}>{auth.currentUser.usuario}</Text>
+            <Text style={styles.info}>{this.state.usuario.usuario}</Text>
           </View>
 
           <View style={styles.separador}>
