@@ -13,7 +13,7 @@ class Post extends Component {
   }
 
   actualizarDatos() {
-    db.collection('posts')
+    db.collection("posts")
       .doc(this.props.info.id)
       .update({
         likes: this.props.info.data.likes.includes(auth.currentUser.email)
@@ -21,14 +21,12 @@ class Post extends Component {
           : firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email)
       })
       .then(
-        () => console.log('actualizado')
+        () => console.log("actualizado")
       )
   }
 
 
   render() {
-    console.log(this.props);
-    
     return (
       <View style={styles.card}>
         <View style={styles.objetosArriba}>
@@ -71,8 +69,7 @@ const styles = StyleSheet.create({
   },
   boton: {
     backgroundColor: "#1da1f2",
-    paddingVertical: 6,
-    paddingHorizontal: 12,
+    padding: 10,
     borderRadius: 20,
     alignItems: "center",
     marginTop: 5

@@ -7,13 +7,13 @@ class NuevoPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '',
-      texto: ''
+      email: "",
+      texto: ""
     }
   }
 
   onSubmit(email, texto) {
-    db.collection('posts')
+    db.collection("posts")
       .add({
         email: auth.currentUser.email,
         texto: texto,
@@ -71,24 +71,22 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   caja: {
-    paddingHorizontal: 10,
+    padding: 10,
     marginTop: 10,
     width: "100%",
-    maxWidth: 480
   },
   form: {
     backgroundColor: "#ffffff",
     height: 40,
-    paddingHorizontal: 12,
+    padding: 12,
     borderWidth: 1,
     borderColor: "#e1e8ed",
     borderRadius: 20,
-    marginVertical: 8
+    margin: 8
   },
   boton: {
     backgroundColor: "#1da1f2",
-    paddingVertical: 10,
-    paddingHorizontal: 16,
+    padding: 10,
     borderRadius: 24,
     alignItems: "center",
     marginTop: 4

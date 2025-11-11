@@ -62,11 +62,6 @@ const styles = StyleSheet.create({
     },
     icono: {
         color: "#1da1f2"
-    },
-    barra: {
-        backgroundColor: "#ffffff",
-        borderTopColor: "#e1e8ed",
-        borderTopWidth: 1
     }
 });
 

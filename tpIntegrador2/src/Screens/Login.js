@@ -16,26 +16,26 @@ class Login extends Component {
     componentDidMount() {
         auth.onAuthStateChanged(user => {
             if (user) {
-                this.props.navigation.navigate('HomeMenu');
+                this.props.navigation.navigate("HomeMenu");
             }
         });
     }
 
     onSubmit(email, password) {
         if (!email.includes("@")) {
-            this.setState({ error: 'El mail esta mal formateado' })
+            this.setState({ error: "El mail esta mal formateado" })
             return
         }
         if (password.length < 6) {
-            this.setState({ error: 'La contraseña debe tener un minimo de 6 caracteres' })
+            this.setState({ error: "La contraseña debe tener un minimo de 6 caracteres" })
             return
         }
         auth.signInWithEmailAndPassword(email, password)
             .then((response) => {
-                this.props.navigation.navigate('HomeMenu')
+                this.props.navigation.navigate("HomeMenu")
             })
             .catch(error => {
-                this.setState({ error: 'Credenciales inválidas.' })
+                this.setState({ error: "Credenciales inválidas." })
 
             })
     };
@@ -47,15 +47,15 @@ class Login extends Component {
 
                 <TextInput
                     style={styles.texto}
-                    keyboardType='email-address'
-                    placeholder='Email'
+                    keyboardType="email-address"
+                    placeholder="Email"
                     onChangeText={text => this.setState({ mail: text })}
                     value={this.state.mail}
                 />
                 <TextInput
                     style={styles.texto}
-                    keyboardType='default'
-                    placeholder='Password'
+                    keyboardType="default"
+                    placeholder="Password"
                     secureTextEntry={true}
                     onChangeText={text => this.setState({ password: text })}
                     value={this.state.password}
@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     boton: {
         backgroundColor: "#1da1f2",
         padding: 12,
-        marginVertical: 10,
+        margin: 10,
         borderRadius: 24,
         width: "70%",
         alignItems: "center"
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     boton2: {
         backgroundColor: "#1da1f2",
         padding: 12,
-        marginVertical: 10,
+        margin: 10,
         borderRadius: 24,
         width: "100%",
         textAlign: "center",
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
         borderColor: "#e1e8ed",
         borderRadius: 20,
         padding: 10,
-        marginVertical: 8,
+        margin: 8,
         backgroundColor: "#ffffff"
     }
 });

@@ -16,17 +16,17 @@ class Register extends Component {
 
     onSubmit(email, password) {
         if (!email.includes("@")) {
-            this.setState({ error: 'El mail esta mal formateado' })
+            this.setState({ error: "El mail esta mal formateado" })
             return
         }
         if (password.length < 6) {
-            this.setState({ error: 'La contraseña debe tener un minimo de 6 caracteres' })
+            this.setState({ error: "La contraseña debe tener un minimo de 6 caracteres" })
             return
         }
         auth.createUserWithEmailAndPassword(email, password)
             .then(response => {
 
-                db.collection('users').add({
+                db.collection("users").add({
                     email: email,
                     usuario: this.state.usuario,
                     createdAt: Date.now(),
@@ -38,7 +38,7 @@ class Register extends Component {
                     .catch(e => console.log(e))
             })
             .catch(error => {
-                this.setState({ error: 'Fallo en el registro.' })
+                this.setState({ error: "Fallo en el registro." })
                 console.log(this.state);
 
             })
@@ -53,22 +53,22 @@ class Register extends Component {
 
                 <TextInput
                     style={styles.texto}
-                    keyboardType='email-address'
-                    placeholder='Email'
+                    keyboardType="email-address"
+                    placeholder="Email"
                     onChangeText={text => this.setState({ email: text })}
                     value={this.state.email}
                 />
                 <TextInput
                     style={styles.texto}
-                    keyboardType='default'
-                    placeholder='Username'
+                    keyboardType="default"
+                    placeholder="Username"
                     onChangeText={text => this.setState({ usuario: text })}
                     value={this.state.usuario}
                 />
                 <TextInput
                     style={styles.texto}
-                    keyboardType='default'
-                    placeholder='Password'
+                    keyboardType="default"
+                    placeholder="Password"
                     secureTextEntry={true}
                     onChangeText={text => this.setState({ password: text })}
                     value={this.state.password}
@@ -80,7 +80,7 @@ class Register extends Component {
                     <Text style={styles.boton2}>Registrate</Text>
                 </Pressable>
 
-                <Pressable style={styles.boton} onPress={() => this.props.navigation.navigate('Login')}>
+                <Pressable style={styles.boton} onPress={() => this.props.navigation.navigate("Login")}>
                     <Text style={styles.text}>Ya tengo cuenta</Text>
                 </Pressable>
 
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     boton: {
         backgroundColor: "#1da1f2",
         padding: 12,
-        marginVertical: 10,
+        margin: 10,
         borderRadius: 24,
         width: "70%",
         alignItems: "center"
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     boton2: {
         backgroundColor: "#1da1f2",
         padding: 12,
-        marginVertical: 10,
+        margin: 10,
         borderRadius: 24,
         width: "100%",
         textAlign: "center",
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
         borderColor: "#e1e8ed",
         borderRadius: 20,
         padding: 10,
-        marginVertical: 8,
+        margin: 8,
         backgroundColor: "#ffffff"
     }
 });

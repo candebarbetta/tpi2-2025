@@ -53,8 +53,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.log(this.state.usuario);
-    
     return (
       <View style={styles.granContenedor} >
 
@@ -145,8 +143,7 @@ const styles = StyleSheet.create({
   boton: {
     backgroundColor: "#55ACEE",
     borderRadius: 20,
-    paddingVertical: 10,
-    paddingHorizontal: 25,
+    padding: 10,
     alignSelf: "center",
     marginTop: 15,
   },

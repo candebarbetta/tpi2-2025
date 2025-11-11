@@ -28,11 +28,13 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props);
-
     return (
       <View style={styles.container}>
-        <Text style={styles.texto}>Home</Text>
+        <View style={styles.barra}>
+        <Text style={styles.textoMejor}>Para ti</Text>
+        <Text style={styles.texto}>     |     </Text>
+        <Text style={styles.texto}>Siguiendo</Text>
+        </View>
 
         <FlatList
           data={this.state.posts}
@@ -45,7 +47,7 @@ class Home extends Component {
   }
 }
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#f5f8fa",
@@ -58,6 +60,19 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 12
   },
+  textoMejor: {
+    alignSelf: "center",
+    fontSize: 20,
+    marginBottom: 12,
+    fontWeight: "bold"
+  },
+  barra: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 12
+  }
 });
 
 
